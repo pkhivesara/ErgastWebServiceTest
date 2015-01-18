@@ -1,12 +1,14 @@
 package com.formulaWebService.test;
 
 
+import java.util.List;
+
 public class RaceTable {
     String season;
     String round;
-    Races[] races;
+    List<Race> races;
 
-    public class Races {
+    public class Race {
         String season;
         String round;
         String url;

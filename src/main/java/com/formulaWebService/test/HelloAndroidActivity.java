@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class HelloAndroidActivity extends Activity {
 
     private static String TAG = "FormaulWebServiceTest";
@@ -21,7 +23,7 @@ public class HelloAndroidActivity extends Activity {
         Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
         button1 = (Button) findViewById(R.id.button1);
-        textView = (TextView)findViewById(R.id.textView1);
+        textView = (TextView) findViewById(R.id.textView1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,13 +35,10 @@ public class HelloAndroidActivity extends Activity {
     }
 
     private void makeCallToErgastWebService() {
-        ApiResponse apiResponse = RestClient.get().getResult("2");
-        RaceTable.Races[] races = apiResponse.mrdata.raceTable.races;
-        for(int i=0;i<races.length;i++){
-             date = races[i].date;
-             venue = races[i].raceName;
-        }
-
+        MRData apiResponse = RestClient.get().getResult();
+        List<RaceTable.Race> races = apiResponse.raceTable.races;
+        venue = races.get(0).raceName;
+        date = races.get(0).date;
     }
 
 }

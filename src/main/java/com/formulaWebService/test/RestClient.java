@@ -9,7 +9,7 @@ public class RestClient {
 
     private static ApiCall REST_CLIENT;
     private static String URL =
-            "http://ergast.com/api/";
+            "http://ergast.com/api";
 
     static {
         setupRestClient();
@@ -23,7 +23,7 @@ public class RestClient {
 
     private static void setupRestClient() {
         RestAdapter.Builder builder = new RestAdapter.Builder()
-                .setEndpoint(URL)
+                .setEndpoint(URL).setLogLevel(RestAdapter.LogLevel.FULL)
                 .setClient(new OkClient(new OkHttpClient()));
 
 
