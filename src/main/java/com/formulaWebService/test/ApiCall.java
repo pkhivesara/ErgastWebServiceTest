@@ -7,5 +7,5 @@ import retrofit.http.Query;
 public interface ApiCall {
 
 @GET("/f1/current")
-  public void getResult(@Query("round")String round);
+  public ApiResponse getResult(@Query("round")String round);
 }

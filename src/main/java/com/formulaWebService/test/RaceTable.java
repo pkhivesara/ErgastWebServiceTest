@@ -6,7 +6,7 @@ public class RaceTable {
     String round;
     Races[] races;
 
-    private class Races {
+    public class Races {
         String season;
         String round;
         String url;
@@ -15,13 +15,13 @@ public class RaceTable {
         String date;
         String time;
 
-        private class Circuit {
+        public class Circuit {
             String circuitId;
             String url;
             String circuitName;
             Location location;
 
-            private class Location {
+            public class Location {
                 String lat;
                 String locality;
                 String country;
