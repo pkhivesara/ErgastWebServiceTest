@@ -6,14 +6,14 @@ import java.util.List;
 public class RaceTable {
     String season;
     String round;
-    List<Race> races;
+    List<Races> Races;
 
-    public class Race {
+    public class Races {
         String season;
         String round;
         String url;
         String raceName;
-        Circuit circuit;
+        Circuit Circuit;
         String date;
         String time;
 
@@ -21,7 +21,7 @@ public class RaceTable {
             String circuitId;
             String url;
             String circuitName;
-            Location location;
+            Location Location;
 
             public class Location {
                 String lat;

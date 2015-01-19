@@ -2,7 +2,7 @@ package com.formulaWebService.test;
 
 
 public class ApiResponse {
-    MRData mrdata;
+    MRData MRData;
 
     public class MRData {
         String xmlns;
@@ -11,6 +11,6 @@ public class ApiResponse {
         String limit;
         String offset;
         String total;
-        RaceTable raceTable;
+        RaceTable RaceTable;
     }
 }

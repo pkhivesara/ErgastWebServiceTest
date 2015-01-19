@@ -30,15 +30,18 @@ public class HelloAndroidActivity extends Activity {
                 makeCallToErgastWebService();
             }
         });
-        textView.setText(date + venue);
+
 
     }
 
     private void makeCallToErgastWebService() {
-        MRData apiResponse = RestClient.get().getResult();
-        List<RaceTable.Race> races = apiResponse.raceTable.races;
-        venue = races.get(0).raceName;
-        date = races.get(0).date;
+        ApiResponse mrData = RestClient.get().getResult();
+       // List<RaceTable.Races> races = mrData.mrdata.raceTable.races;
+        //venue = races.get(0).raceName;
+        //date = races.get(0).date;
+        date = mrData.MRData.limit;
+        venue = mrData.MRData.RaceTable.Races.get(0).raceName;
+        textView.setText(date + venue);
     }
 
 }
