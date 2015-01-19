@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.List;
@@ -12,8 +13,10 @@ import java.util.List;
 public class HelloAndroidActivity extends Activity {
 
     private static String TAG = "FormaulWebServiceTest";
-    Button button1;
+    Button buttonRaceDetails;
+    Button buttonDriverDetails;
     TextView textView;
+    EditText editText;
     String date;
     String venue;
 
@@ -22,26 +25,39 @@ public class HelloAndroidActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
-        button1 = (Button) findViewById(R.id.button1);
+        buttonRaceDetails = (Button) findViewById(R.id.buttonRaceDetails);
+        buttonDriverDetails = (Button) findViewById(R.id.buttonDriverDetails);
         textView = (TextView) findViewById(R.id.textView1);
-        button1.setOnClickListener(new View.OnClickListener() {
+        editText = (EditText) findViewById(R.id.editText1);
+        buttonRaceDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeCallToErgastWebService();
+                makeCallToErgastWebService("race");
+            }
+        });
+        buttonDriverDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeCallToErgastWebService("driver");
             }
         });
 
 
     }
 
-    private void makeCallToErgastWebService() {
-        ApiResponse mrData = RestClient.get().getResult("3");
-       // List<RaceTable.Races> races = mrData.mrdata.raceTable.races;
-        //venue = races.get(0).raceName;
-        //date = races.get(0).date;
-        date = mrData.MRData.limit;
+    private void makeCallToErgastWebService(String typeOfCall) {
+
+        if(typeOfCall.equals("race")){
+        ApiResponse mrData = RestClient.get().getRoundDetail(editText.getText().toString());
+        date = mrData.MRData.RaceTable.Races.get(0).date;
         venue = mrData.MRData.RaceTable.Races.get(0).raceName;
-        textView.setText(date + venue);
+        textView.setText(date + venue);}
+        else{
+            DriverDetails driverDetails = RestClient.get().getDriverDetails("2012","25");
+            date = driverDetails.MRData.DriverTable.Drivers.get(0).givenName;
+            venue = driverDetails.MRData.DriverTable.Drivers.get(10).givenName;
+            textView.setText(date + venue);
+        }
     }
 
 }
