@@ -35,7 +35,7 @@ public class HelloAndroidActivity extends Activity {
     }
 
     private void makeCallToErgastWebService() {
-        ApiResponse mrData = RestClient.get().getResult();
+        ApiResponse mrData = RestClient.get().getResult("3");
        // List<RaceTable.Races> races = mrData.mrdata.raceTable.races;
         //venue = races.get(0).raceName;
         //date = races.get(0).date;
