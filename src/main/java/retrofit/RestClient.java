@@ -1,7 +1,8 @@
-package com.formulaWebService.test;
+package retrofit;
 
 
 import com.squareup.okhttp.OkHttpClient;
+import retrofit.ApiCall;
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 

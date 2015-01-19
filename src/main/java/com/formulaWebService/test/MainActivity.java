@@ -7,10 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import retrofit.RestClient;
 
-import java.util.List;
-
-public class HelloAndroidActivity extends Activity {
+public class MainActivity extends Activity {
 
     private static String TAG = "FormaulWebServiceTest";
     Button buttonRaceDetails;
