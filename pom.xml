@@ -41,6 +41,11 @@
             <artifactId>butterknife</artifactId>
             <version>6.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.activeandroid</groupId>
+            <artifactId>activeandroid</artifactId>
+            <version>3.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 
