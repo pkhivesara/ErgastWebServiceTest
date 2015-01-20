@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Hello FormaulWebServiceTest!</string>
     <string name="app_name">FormaulWebServiceTest</string>
+    <string name="enter_round_number">Enter round number</string>
+    <string name="enter_season">Enter season</string>
+    <string name="make_webservice_call">Make WebService Call</string>
 </resources>

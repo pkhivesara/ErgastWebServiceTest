@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
     <TextView
-            android:id = "@+id/textViewResponse"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hello"
-            />
-    <EditText android:hint = "Enter round number"
-            android:id = "@+id/editTextRound" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-    <EditText android:hint = "Enter season"
-            android:id = "@+id/editTextSeason" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-    <Button
-            android:id="@+id/buttonRaceDetails" android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Make WebService Call"/>
+        android:id="@+id/textViewResponse"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello" />
+
+    <EditText
+        android:hint="@string/enter_round_number"
+        android:id="@+id/editTextRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="@string/enter_season"
+        android:id="@+id/editTextSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
-            android:id="@+id/buttonDriverDetails" android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Make WebService Call"/>
+        android:id="@+id/buttonRaceDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/make_webservice_call" />
+
+    <Button
+        android:id="@+id/buttonDriverDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/make_webservice_call" />
 </LinearLayout>
