@@ -7,10 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import retrofit.Callback;
 import retrofit.RestClient;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class MainActivity extends Activity {
 
@@ -58,17 +62,41 @@ public class MainActivity extends Activity {
     private void makeCallToErgastWebService(String typeOfCall) {
 
         if (typeOfCall.equals("race")) {
-            ApiResponse mrData = RestClient.get().getRoundDetail(editTextRound.getText().toString());
-            date = mrData.MRData.RaceTable.Races.get(0).date;
-            venue = mrData.MRData.RaceTable.Races.get(0).raceName;
-            textViewResponse.setText(date + venue);
-        } else {
-            DriverDetails driverDetails = RestClient.get().getDriverDetails(editTextSeason.getText().toString(), "25");
-            date = driverDetails.MRData.DriverTable.Drivers.get(0).givenName;
-            venue = driverDetails.MRData.DriverTable.Drivers.get(10).givenName;
-            textViewResponse.setText(date + venue);
+            RestClient.get().getRoundDetail(editTextRound.getText().toString(), new Callback<ApiResponse>() {
+
+
+                @Override
+                public void success(ApiResponse apiResponse, Response response) {
+                    date = apiResponse.MRData.RaceTable.Races.get(0).date;
+                    venue = apiResponse.MRData.RaceTable.Races.get(0).raceName;
+                    textViewResponse.setText(date + venue);
+                }
+
+
+                @Override
+                public void failure(RetrofitError retrofitError) {
+                    Toast.makeText(MainActivity.this, "race call failed:" + retrofitError.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+
+            });
+        } else if (typeOfCall.equals("driver")) {
+            RestClient.get().getDriverDetails(editTextSeason.getText().toString(), "25", new Callback<DriverDetails>() {
+
+                @Override
+                public void success(DriverDetails driverDetails, Response response) {
+
+                    date = driverDetails.MRData.DriverTable.Drivers.get(0).givenName;
+                    venue = driverDetails.MRData.DriverTable.Drivers.get(10).givenName;
+                    textViewResponse.setText(date + venue);
+                }
+
+                @Override
+                public void failure(RetrofitError retrofitError) {
+                    Toast.makeText(MainActivity.this, "driver details call failed:" + retrofitError.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
-
 }
 
