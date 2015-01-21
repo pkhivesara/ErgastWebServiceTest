@@ -10,8 +10,8 @@ import retrofit.http.Query;
 public interface ApiCall {
 
     @GET("/f1/current/{round}.json")
-    public void getRoundDetail(@Path("round") String round, Callback callback);
+    public void getRoundDetail(@Path("round") String round, Callback<ApiResponse> callback);
 
     @GET("/f1/{season}/drivers.json")
-    public void getDriverDetails(@Path("season") String season, @Query("limit") String limit, Callback callback);
+    public void getDriverDetails(@Path("season") String season, @Query("limit") String limit, Callback<DriverDetails> callback);
 }
