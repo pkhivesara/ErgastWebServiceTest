@@ -3,7 +3,6 @@ package com.formulaWebService.test;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import retrofit.RestClient;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class MainActivity extends Activity {
+public class MainActivity2 extends Activity {
 
 
     String date;
@@ -75,7 +74,7 @@ public class MainActivity extends Activity {
 
                 @Override
                 public void failure(RetrofitError retrofitError) {
-                    Toast.makeText(MainActivity.this, "race call failed:" + retrofitError.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity2.this, "race call failed:" + retrofitError.getMessage(), Toast.LENGTH_LONG).show();
                 }
 
 
@@ -93,7 +92,7 @@ public class MainActivity extends Activity {
 
                 @Override
                 public void failure(RetrofitError retrofitError) {
-                    Toast.makeText(MainActivity.this, "driver details call failed:" + retrofitError.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity2.this, "driver details call failed:" + retrofitError.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
         }
