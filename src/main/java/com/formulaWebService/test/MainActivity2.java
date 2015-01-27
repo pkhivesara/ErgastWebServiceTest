@@ -56,7 +56,6 @@ public class MainActivity2 extends Activity {
         Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
         ButterKnife.inject(this);
-        FragmentManager
 
     }
 
