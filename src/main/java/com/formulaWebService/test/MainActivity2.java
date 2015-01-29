@@ -53,7 +53,7 @@ public class MainActivity2 extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate");
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_race_details);
         ButterKnife.inject(this);
 
     }
