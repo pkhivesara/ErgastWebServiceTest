@@ -2,7 +2,6 @@ package com.formulaWebService.test;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,8 +20,8 @@ public class MainActivity2 extends Activity {
 
     String date;
     String venue;
-
     private static String TAG = "FormulaOneWebServiceTest";
+
 
     @InjectView(R.id.buttonRaceDetails)
     Button buttonRaceDetails;
