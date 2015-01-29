@@ -26,8 +26,7 @@ public class MainActivity extends FragmentActivity {
         public Fragment getItem(int pos) {
             switch (pos) {
                 case 0:
-                    RaceDetailsFragment raceDetailsFragment = new RaceDetailsFragment();
-                    return raceDetailsFragment;
+                    return new RaceDetailsFragment();
             }
             return new Fragment();
 
