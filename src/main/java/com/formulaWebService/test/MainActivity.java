@@ -29,7 +29,6 @@ public class MainActivity extends FragmentActivity{
             switch(pos) {
 
 
-
             }
             return new Fragment();
         }
