@@ -10,16 +10,9 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        if (savedInstanceState == null) {
-          FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            RaceDetailsFragment fragment = new RaceDetailsFragment();
-            fragmentTransaction.add(R.id.viewPager, fragment);
-            fragmentTransaction.commit();
-        }
+
     }
 
 
@@ -31,7 +24,12 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int pos) {
-    return new Fragment();
+            switch (pos) {
+                case 0:
+                    RaceDetailsFragment raceDetailsFragment = new RaceDetailsFragment();
+                    return raceDetailsFragment;
+            }
+            return new Fragment();
 
         }
 

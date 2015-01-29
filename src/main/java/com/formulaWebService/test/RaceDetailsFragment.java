@@ -21,12 +21,6 @@ import retrofit.client.Response;
 
 public class RaceDetailsFragment extends Fragment {
 
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_race_details,container,false);
@@ -36,7 +30,6 @@ public class RaceDetailsFragment extends Fragment {
 
     String date;
     String venue;
-    private static String TAG = "FormulaOneWebServiceTest";
 
 
     @InjectView(R.id.buttonRaceDetails)
