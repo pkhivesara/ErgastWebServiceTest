@@ -27,6 +27,8 @@ public class MainActivity extends FragmentActivity {
             switch (pos) {
                 case 0:
                     return new RaceDetailsFragment();
+                case 1:
+                    return new DriverDetailsFragment();
             }
             return new Fragment();
 
@@ -34,7 +36,7 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public int getCount() {
-            return 1;
+            return 2;
         }
     }
 }
