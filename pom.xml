@@ -50,7 +50,7 @@
             <groupId>com.android.support</groupId>
             <artifactId>support-v4</artifactId>
             <version>20.0.0</version>
-            <type>aar</type>
+            <type>jar</type>
         </dependency>
 
     </dependencies>
