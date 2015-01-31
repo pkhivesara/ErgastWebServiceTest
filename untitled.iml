@@ -44,7 +44,6 @@
     <orderEntry type="library" name="Maven: com.jakewharton:butterknife:6.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.activeandroid:activeandroid:3.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.google.android:support-v4:r7" level="project" />
-    <orderEntry type="library" name="Maven: com.android.support:support-v4:20.0.0" level="project" />
     <orderEntry type="library" name="Maven: android.support:compatibility-v7-appcompat:21.0.3" level="project" />
   </component>
 </module>
