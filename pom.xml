@@ -47,9 +47,15 @@
             <version>3.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.android.support</groupId>
+            <groupId>com.google.android</groupId>
             <artifactId>support-v4</artifactId>
-            <version>20.0.0</version>
+            <version>r7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>android.support</groupId>
+            <artifactId>compatibility-v7-appcompat</artifactId>
+            <version>21.0.3</version>
             <type>jar</type>
         </dependency>
 

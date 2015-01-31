@@ -56,8 +56,8 @@ public class FragmentsHelper {
 
 
     public interface FragmentHelperInterface{
-        public void setTextForDriverDetails(String date, String venue);
+        public void setTextForDriverDetails(String givenName, String givenName1);
 
-        public void setTextForRaceDetails(String givenName, String givenName1);
+        public void setTextForRaceDetails(String date, String venue);
     }
 }
