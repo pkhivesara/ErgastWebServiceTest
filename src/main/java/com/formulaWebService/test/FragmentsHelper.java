@@ -41,9 +41,8 @@ public class FragmentsHelper {
                 @Override
                 public void success(DriverDetails driverDetails, Response response) {
 
-                    String givenName = driverDetails.MRData.DriverTable.Drivers.get(0).givenName;
-                    String givenName1 = driverDetails.MRData.DriverTable.Drivers.get(10).givenName;
-                    helperInterface.setTextForDriverDetails(givenName,givenName1);
+
+                    helperInterface.setTextForDriverDetails(driverDetails);
                 }
 
                 @Override
@@ -56,7 +55,7 @@ public class FragmentsHelper {
 
 
     public interface FragmentHelperInterface{
-        public void setTextForDriverDetails(String givenName, String givenName1);
+        public void setTextForDriverDetails(DriverDetails driverDetails);
 
         public void setTextForRaceDetails(String date, String venue);
     }

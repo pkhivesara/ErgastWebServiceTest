@@ -43,7 +43,7 @@ public class RaceDetailsFragment extends Fragment implements FragmentsHelper.Fra
 
 
     @Override
-    public void setTextForDriverDetails(String givenName, String givenName1) {
+    public void setTextForDriverDetails(DriverDetails driverDetails) {
 
     }
 

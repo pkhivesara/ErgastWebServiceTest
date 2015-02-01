@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -23,6 +24,9 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
 
     @InjectView(R.id.editTextSeason)
     EditText editTextSeason;
+
+    @InjectView(R.id.listView)
+    ListView listView;
 
     @OnClick(R.id.buttonDriverDetails)
     void makeServiceCallForDrivers() {
@@ -40,7 +44,7 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
     }
 
     @Override
-    public void setTextForDriverDetails(String givenName, String givenName1) {
+    public void setTextForDriverDetails(DriverDetails driverDetails) {
 
     }
 
