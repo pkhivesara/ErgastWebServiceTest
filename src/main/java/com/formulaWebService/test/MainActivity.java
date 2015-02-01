@@ -13,6 +13,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     ActionBar actionBar;
     ViewPager pager;
+    RaceDetailsFragment raceDetailsFragment;
+    DriverDetailsFragment driverDetailsFragment;
 
     String[] tabs = {RaceDetailsFragment.class.getName(), DriverDetailsFragment.class.getName()};
 
@@ -23,6 +25,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
         actionBar = getActionBar();
+        raceDetailsFragment = new RaceDetailsFragment();
+        driverDetailsFragment = new DriverDetailsFragment();
         setUpActionBarTabs();
 
 
@@ -65,9 +69,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         public Fragment getItem(int pos) {
             switch (pos) {
                 case 0:
-                    return new RaceDetailsFragment();
+                    return raceDetailsFragment;
                 case 1:
-                    return new DriverDetailsFragment();
+                    return driverDetailsFragment;
             }
             return new Fragment();
 

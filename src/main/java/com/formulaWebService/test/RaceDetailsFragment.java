@@ -8,23 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class RaceDetailsFragment extends Fragment implements FragmentsHelper.FragmentHelperInterface {
     FragmentsHelper fragmentsHelper;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_race_details, container, false);
-        fragmentsHelper = new FragmentsHelper(this);
-        return view;
-
-    }
-
-    String date;
-    String venue;
-
 
     @InjectView(R.id.buttonRaceDetails)
     Button buttonRaceDetails;
@@ -41,6 +30,16 @@ public class RaceDetailsFragment extends Fragment implements FragmentsHelper.Fra
     void makeServiceCallForRace() {
         fragmentsHelper.makeCallToErgastWebService("race", editTextRound.getText().toString());
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_race_details, container, false);
+        fragmentsHelper = new FragmentsHelper(this);
+        ButterKnife.inject(this,view);
+        return view;
+
+    }
+
 
 
     @Override
