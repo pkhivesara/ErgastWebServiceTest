@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello FormaulWebServiceTest!</string>
-    <string name="app_name">FormaulWebServiceTest</string>
+    <string name="hello">Hello FormulaWebServiceTest!</string>
+    <string name="app_name">FormulaWebServiceTest</string>
     <string name="enter_round_number">Enter round number</string>
     <string name="enter_season">Enter season</string>
     <string name="make_webservice_call">Make WebService Call</string>
