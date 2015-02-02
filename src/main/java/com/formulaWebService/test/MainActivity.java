@@ -28,8 +28,18 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         raceDetailsFragment = new RaceDetailsFragment();
         driverDetailsFragment = new DriverDetailsFragment();
         setUpActionBarTabs();
+        setUpViewPagerListener();
 
 
+    }
+
+    private void setUpViewPagerListener() {
+        pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+            @Override
+            public void onPageSelected(int position) {
+                actionBar.setSelectedNavigationItem(position);
+            }
+        });
     }
 
     private void setUpActionBarTabs() {
