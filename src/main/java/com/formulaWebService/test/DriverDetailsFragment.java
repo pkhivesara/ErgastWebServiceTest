@@ -12,6 +12,7 @@ import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,12 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
     @InjectView(R.id.listView)
     ListView listView;
 
-    TextView title;
+    TextView titleFirstName;
+    TextView titleLastName;
+    List<String> firstName = new ArrayList<String>();
+    List<String> lastName = new ArrayList<String>();
+    String tempFirstNameText;
+    String tempLastNameText;
 
     @OnClick(R.id.buttonDriverDetails)
     void makeServiceCallForDrivers() {
@@ -48,14 +54,16 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
 
     @Override
     public void setTextForDriverDetails(DriverDetails driverDetails) {
-        List<String> firstName = new ArrayList<String>();
-        String tempText;
+
+
         for (int i = 0; i < driverDetails.MRData.DriverTable.Drivers.size(); i++) {
-            tempText = driverDetails.MRData.DriverTable.Drivers.get(i).givenName;
-            firstName.add(tempText);
+            tempFirstNameText = driverDetails.MRData.DriverTable.Drivers.get(i).givenName;
+            tempLastNameText = driverDetails.MRData.DriverTable.Drivers.get(i).familyName;
+            firstName.add(tempFirstNameText);
+            lastName.add(tempLastNameText);
 
         }
-        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName);
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName, lastName);
         listView.setAdapter(customBaseAdapter);
 
 
@@ -68,9 +76,11 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
 
     private class CustomBaseAdapter extends BaseAdapter {
         List<String> firstName;
+        List<String> lastName;
 
-        public CustomBaseAdapter(List<String> firstName) {
+        public CustomBaseAdapter(List<String> firstName, List<String> lastName) {
             this.firstName = firstName;
+            this.lastName = lastName;
 
 
         }
@@ -97,9 +107,12 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
-            title = (TextView) convertView.findViewById(android.R.id.text1);
-            title.setText(firstName.get(position));
+            convertView = inflater.inflate(android.R.layout.simple_list_item_2, parent, false);
+            titleFirstName = (TextView) convertView.findViewById(android.R.id.text1);
+            titleLastName = (TextView) convertView.findViewById(android.R.id.text2);
+
+            titleFirstName.setText(firstName.get(position));
+            titleLastName.setText(lastName.get(position));
 
             return convertView;
         }
