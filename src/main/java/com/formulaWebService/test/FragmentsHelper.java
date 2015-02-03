@@ -40,8 +40,6 @@ public class FragmentsHelper {
 
                 @Override
                 public void success(DriverDetails driverDetails, Response response) {
-
-
                     helperInterface.setTextForDriverDetails(driverDetails);
                 }
 

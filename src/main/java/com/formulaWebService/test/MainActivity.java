@@ -16,7 +16,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     RaceDetailsFragment raceDetailsFragment;
     DriverDetailsFragment driverDetailsFragment;
 
-    String[] tabs = {RaceDetailsFragment.class.getName(), DriverDetailsFragment.class.getName()};
+    String[] tabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         actionBar = getActionBar();
         raceDetailsFragment = new RaceDetailsFragment();
         driverDetailsFragment = new DriverDetailsFragment();
+        tabs = new String[]{getString(R.string.circuit_details), getString(R.string.driver_details)};
         setUpActionBarTabs();
         setUpViewPagerListener();
 

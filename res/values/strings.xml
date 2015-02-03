@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello FormulaWebServiceTest!</string>
+    <string name="initial_search_race">Details for race circuit will be shown here. Click on the search icon above and enter the round number</string>
     <string name="app_name">FormulaWebServiceTest</string>
     <string name="enter_round_number">Enter round number</string>
+    <string name="circuit_details">Circuit Details</string>
+    <string name="driver_details">Driver Details</string>
+
     <string name="enter_season">Enter season</string>
     <string name="make_webservice_call">Make WebService Call</string>
 </resources>
