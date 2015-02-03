@@ -30,8 +30,6 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
     @InjectView(R.id.listView)
     ListView listView;
 
-    TextView titleFirstName;
-    TextView titleLastName;
     List<String> firstName = new ArrayList<String>();
     List<String> lastName = new ArrayList<String>();
     String tempFirstNameText;
@@ -106,15 +104,32 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(android.R.layout.simple_list_item_2, parent, false);
-            titleFirstName = (TextView) convertView.findViewById(android.R.id.text1);
-            titleLastName = (TextView) convertView.findViewById(android.R.id.text2);
+            ViewHolder viewHolder;
 
-            titleFirstName.setText(firstName.get(position));
-            titleLastName.setText(lastName.get(position));
+            if (convertView == null) {
+                LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(android.R.layout.simple_list_item_2, parent, false);
+                viewHolder = new ViewHolder();
+
+                viewHolder.firstName = (TextView) convertView.findViewById(android.R.id.text1);
+                viewHolder.lastName = (TextView) convertView.findViewById(android.R.id.text2);
+
+                convertView.setTag(viewHolder);
+
+            } else {
+                viewHolder = (ViewHolder) convertView.getTag();
+
+            }
+
+            viewHolder.firstName.setText(firstName.get(position));
+            viewHolder.lastName.setText(lastName.get(position));
 
             return convertView;
+        }
+
+        private class ViewHolder {
+            TextView firstName;
+            TextView lastName;
         }
     }
 }
