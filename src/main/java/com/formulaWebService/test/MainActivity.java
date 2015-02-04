@@ -8,6 +8,12 @@ import android.support.v4.app.*;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.SearchView;
+
+import java.util.zip.Inflater;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -17,6 +23,19 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     DriverDetailsFragment driverDetailsFragment;
 
     String[] tabs;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+        submitTextFromSearchView(menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +50,24 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         setUpActionBarTabs();
         setUpViewPagerListener();
 
+    }
+
+    private void submitTextFromSearchView(Menu menu) {
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if(query.length() == 2 || query.length() == 1){
+                raceDetailsFragment.makeServiceCallForRace(query);}
+                else driverDetailsFragment.makeServiceCallForDrivers(query);
+                return false;
+            }
+        });
 
     }
 

@@ -4,20 +4,16 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <EditText
-        android:hint="@string/enter_season"
-        android:id="@+id/editTextSeason"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textViewResponse"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/initial_search_race"
+        android:gravity="center|center_vertical"/>
 
-
-    <Button
-        android:id="@+id/buttonDriverDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/make_webservice_call" />
 
     <ListView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id = "@+id/listView"/>

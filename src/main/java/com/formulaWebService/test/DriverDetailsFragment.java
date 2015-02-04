@@ -21,23 +21,20 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
 
     FragmentsHelper fragmentsHelper;
 
-    @InjectView(R.id.buttonDriverDetails)
-    Button buttonDriverDetails;
-
-    @InjectView(R.id.editTextSeason)
-    EditText editTextSeason;
-
     @InjectView(R.id.listView)
     ListView listView;
+
+    @InjectView(R.id.textViewResponse)
+    TextView textView;
 
     List<String> firstName = new ArrayList<String>();
     List<String> lastName = new ArrayList<String>();
     String tempFirstNameText;
     String tempLastNameText;
 
-    @OnClick(R.id.buttonDriverDetails)
-    void makeServiceCallForDrivers() {
-        fragmentsHelper.makeCallToErgastWebService("driver", editTextSeason.getText().toString());
+
+    public void makeServiceCallForDrivers(String query) {
+        fragmentsHelper.makeCallToErgastWebService("driver", query);
     }
 
     @Override
@@ -63,6 +60,8 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
         }
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName, lastName);
         listView.setAdapter(customBaseAdapter);
+        listView.setVisibility(View.VISIBLE);
+        textView.setVisibility(View.GONE);
 
 
     }
