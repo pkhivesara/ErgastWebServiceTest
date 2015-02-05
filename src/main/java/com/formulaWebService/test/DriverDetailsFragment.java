@@ -4,6 +4,7 @@ package com.formulaWebService.test;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,7 +66,11 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(),"clicked",Toast.LENGTH_LONG).show();
+                DetailsFragment detailsFragment = new DetailsFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.driverDetailsLinearLayout,detailsFragment).addToBackStack(null);
+                fragmentTransaction.commit();
+
             }
         });
 
