@@ -62,6 +62,12 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
         listView.setAdapter(customBaseAdapter);
         listView.setVisibility(View.VISIBLE);
         textView.setVisibility(View.GONE);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getActivity(),"clicked",Toast.LENGTH_LONG).show();
+            }
+        });
 
 
     }
