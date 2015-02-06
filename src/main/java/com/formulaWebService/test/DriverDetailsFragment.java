@@ -2,6 +2,7 @@ package com.formulaWebService.test;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -66,10 +67,13 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                DetailsFragment detailsFragment = new DetailsFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.driverDetailsLinearLayout,detailsFragment).addToBackStack(null);
-                fragmentTransaction.commit();
+                String driverDetails = ((TextView)view.findViewById(android.R.id.text1)).getText().toString();
+
+                Intent startDetailActivity = new Intent(getActivity(),DetailsActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("DRIVER_DETAILS",driverDetails);
+                startDetailActivity.putExtras(bundle);
+                startActivity(startDetailActivity);
 
             }
         });
