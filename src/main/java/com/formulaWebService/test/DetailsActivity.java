@@ -18,6 +18,12 @@ public class DetailsActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        setBundleAndFragmentTransaction();
+
+
+    }
+
+    private void setBundleAndFragmentTransaction() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         DetailsFragment fragment = new DetailsFragment();
@@ -26,7 +32,5 @@ public class DetailsActivity extends FragmentActivity {
         fragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.detailsActivity, fragment);
         fragmentTransaction.commit();
-
-
     }
 }
