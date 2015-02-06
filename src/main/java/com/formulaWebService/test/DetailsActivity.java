@@ -21,9 +21,9 @@ public class DetailsActivity extends FragmentActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         DetailsFragment fragment = new DetailsFragment();
-//        Bundle bundle = new Bundle();
-//        bundle.putString("DRIVER_DETAILS", getIntent().getExtras().getString("DRIVER_DETAILS"));
-//        fragment.setArguments(bundle);
+        Bundle bundle = new Bundle();
+        bundle.putString("DRIVER_DETAILS", getIntent().getExtras().getString("DRIVER_DETAILS"));
+        fragment.setArguments(bundle);
         fragmentTransaction.replace(R.id.detailsActivity, fragment);
         fragmentTransaction.commit();
 
