@@ -16,9 +16,9 @@ import pojo.DriverDetails;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DriverDetailsFragment extends Fragment implements FragmentsHelper.FragmentHelperInterface {
+public class DriverDetailsFragment extends Fragment implements DriverDetailsFragmentPresenter.FragmentHelperInterface {
 
-    FragmentsHelper fragmentsHelper;
+    DriverDetailsFragmentPresenter fragmentsHelper;
 
     @InjectView(R.id.listView)
     ListView listView;
@@ -39,7 +39,7 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_driver_details, container, false);
-        fragmentsHelper = new FragmentsHelper(this);
+        fragmentsHelper = new DriverDetailsFragmentPresenter(this);
         ButterKnife.inject(this, view);
 
         return view;
@@ -59,12 +59,12 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
         }
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName, lastName);
         listView.setAdapter(customBaseAdapter);
-        setUIElementsVisiblityAndClickListener();
+        setUIElementsVisibilityAndClickListener();
 
 
     }
 
-    private void setUIElementsVisiblityAndClickListener() {
+    private void setUIElementsVisibilityAndClickListener() {
         listView.setVisibility(View.VISIBLE);
         textView.setVisibility(View.GONE);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

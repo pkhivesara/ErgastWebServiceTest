@@ -8,8 +8,8 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import pojo.DriverDetails;
 
-public class RaceDetailsFragment extends Fragment implements FragmentsHelper.FragmentHelperInterface {
-    FragmentsHelper fragmentsHelper;
+public class RaceDetailsFragment extends Fragment implements DriverDetailsFragmentPresenter.FragmentHelperInterface {
+    DriverDetailsFragmentPresenter fragmentsHelper;
 
     @InjectView(R.id.textViewResponse)
     TextView textViewResponse;
@@ -17,7 +17,7 @@ public class RaceDetailsFragment extends Fragment implements FragmentsHelper.Fra
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_race_details, container, false);
-        fragmentsHelper = new FragmentsHelper(this);
+        fragmentsHelper = new DriverDetailsFragmentPresenter(this);
         ButterKnife.inject(this, view);
         return view;
 
