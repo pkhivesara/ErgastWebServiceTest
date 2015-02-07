@@ -15,29 +15,37 @@ public class DriverDetailsFragmentPresenter {
     FragmentHelperInterface helperInterface;
     ServiceHelper serviceHelper;
     DataSource dataSource;
-    public DriverDetailsFragmentPresenter(FragmentHelperInterface helperInterface){
+
+    public DriverDetailsFragmentPresenter(FragmentHelperInterface helperInterface) {
         serviceHelper = new ServiceHelper(dataSource);
         this.helperInterface = helperInterface;
     }
 
-    public void onResume(){
+    public void onResume() {
         EventBus.getDefault().register(this);
     }
 
-    public void onPause(){
+    public void onPause() {
         EventBus.getDefault().unregister(this);
     }
 
-    public void getRoundDetails(String input){
+    public void getRoundDetails(String input) {
         serviceHelper.getRoundDetails(input);
     }
 
-    public void getDriverDetails(String input){
+    public void getDriverDetails(String input) {
         serviceHelper.getDriverDetails(input);
 
     }
 
-    public interface FragmentHelperInterface{
+
+    public void onEvent(String message) {
+        if (message.equals("data saved")) {
+            dataSource.getDriverDetails();
+        }
+    }
+
+    public interface FragmentHelperInterface {
         public void setTextForDriverDetails(DriverDetails driverDetails);
 
         public void setTextForRaceDetails(String date, String venue);

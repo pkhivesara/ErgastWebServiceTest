@@ -5,4 +5,6 @@ import pojo.DriverDetails;
 
 public interface DataSource {
     public void saveDriverDetails(DriverDetails driverDetails);
+
+    public DriverDetails getDriverDetails();
 }
