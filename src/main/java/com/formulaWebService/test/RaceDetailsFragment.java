@@ -6,7 +6,10 @@ import android.view.*;
 import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import datasource.DriverModel;
 import pojo.DriverDetails;
+
+import java.util.List;
 
 public class RaceDetailsFragment extends Fragment implements DriverDetailsFragmentPresenter.FragmentHelperInterface {
     DriverDetailsFragmentPresenter fragmentsHelper;
@@ -29,7 +32,7 @@ public class RaceDetailsFragment extends Fragment implements DriverDetailsFragme
     }
 
     @Override
-    public void test(String name) {
+    public void test(List<DriverModel> driverModels){
 
     }
 

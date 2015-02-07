@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import datasource.DriverModel;
 import de.greenrobot.event.EventBus;
 import pojo.DriverDetails;
 
@@ -79,7 +80,13 @@ public class DriverDetailsFragment extends Fragment implements DriverDetailsFrag
     }
 
     @Override
-    public void test(String name) {
+    public void test(List<DriverModel> driverModels){
+        for (int i = 0; i < driverModels.size(); i++) {
+            tempFirstNameText = driverModels.get(i).givenName;
+            tempLastNameText = driverModels.get(i).familyName;
+            firstName.add(tempFirstNameText);
+            lastName.add(tempLastNameText);
+        }
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName, lastName);
         listView.setAdapter(customBaseAdapter);
         setUIElementsVisibilityAndClickListener();
