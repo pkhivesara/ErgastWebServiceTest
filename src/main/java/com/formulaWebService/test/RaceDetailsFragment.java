@@ -28,7 +28,7 @@ public class RaceDetailsFragment extends Fragment implements FragmentsHelper.Fra
 
     }
     public void makeServiceCallForRace(String query) {
-        fragmentsHelper.makeCallToErgastWebService("race", query);
+        fragmentsHelper.getRoundDetails(query);
     }
 
     @Override

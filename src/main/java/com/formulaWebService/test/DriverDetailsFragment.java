@@ -33,7 +33,7 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
 
 
     public void makeServiceCallForDrivers(String query) {
-        fragmentsHelper.makeCallToErgastWebService("driver", query);
+        fragmentsHelper.getDriverDetails(query);
     }
 
     @Override
