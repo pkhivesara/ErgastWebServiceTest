@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import de.greenrobot.event.EventBus;
 import pojo.DriverDetails;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class DriverDetailsFragment extends Fragment implements DriverDetailsFragmentPresenter.FragmentHelperInterface {
 
-    DriverDetailsFragmentPresenter fragmentsHelper;
+    DriverDetailsFragmentPresenter driverDetailsFragmentPresenter;
 
     @InjectView(R.id.listView)
     ListView listView;
@@ -33,13 +34,26 @@ public class DriverDetailsFragment extends Fragment implements DriverDetailsFrag
 
 
     public void makeServiceCallForDrivers(String query) {
-        fragmentsHelper.getDriverDetails(query);
+        driverDetailsFragmentPresenter.getDriverDetails(query);
+    }
+
+    @Override
+    public void onResume() {
+        driverDetailsFragmentPresenter.onResume();
+        super.onResume();
+
+    }
+
+    @Override
+    public void onPause() {
+        driverDetailsFragmentPresenter.onPause();
+        super.onPause();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_driver_details, container, false);
-        fragmentsHelper = new DriverDetailsFragmentPresenter(this);
+        driverDetailsFragmentPresenter = new DriverDetailsFragmentPresenter(this);
         ButterKnife.inject(this, view);
 
         return view;

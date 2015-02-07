@@ -1,6 +1,7 @@
 package com.formulaWebService.test;
 
 import datasource.DataSource;
+import de.greenrobot.event.EventBus;
 import pojo.ApiResponse;
 import pojo.DriverDetails;
 import retrofit.Callback;
@@ -20,11 +21,11 @@ public class DriverDetailsFragmentPresenter {
     }
 
     public void onResume(){
-
+        EventBus.getDefault().register(this);
     }
 
     public void onPause(){
-
+        EventBus.getDefault().unregister(this);
     }
 
     public void getRoundDetails(String input){
