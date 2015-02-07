@@ -36,23 +36,20 @@ public class DriverModel extends Model {
     @Column(name = "nationality")
     public String nationality;
 
-    public DriverModel(){
+    public DriverModel() {
         super();
     }
-    public DriverModel(DriverDetails driverDetails) {
-        this.season = driverDetails.MRData.DriverTable.season;
 
-        for (int i = 0; i < driverDetails.MRData.DriverTable.Drivers.size(); i++) {
-            this.driverId = driverDetails.MRData.DriverTable.Drivers.get(i).driverId;
-            this.permanentNumber = driverDetails.MRData.DriverTable.Drivers.get(i).permanentNumber;
-            this.code = driverDetails.MRData.DriverTable.Drivers.get(i).code;
-            this.url = driverDetails.MRData.DriverTable.Drivers.get(i).url;
-            this.givenName = driverDetails.MRData.DriverTable.Drivers.get(i).givenName;
-            this.familyName = driverDetails.MRData.DriverTable.Drivers.get(i).familyName;
-            this.dateOfBirth = driverDetails.MRData.DriverTable.Drivers.get(i).dateOfBirth;
-            this.nationality = driverDetails.MRData.DriverTable.Drivers.get(i).nationality;
+    public DriverModel(DriverDetails.MRData.DriverTable.Drivers drivers) {
+        this.driverId = drivers.driverId;
+        this.permanentNumber = drivers.permanentNumber;
+        this.code = drivers.code;
+        this.url = drivers.url;
+        this.givenName = drivers.givenName;
+        this.familyName = drivers.familyName;
+        this.dateOfBirth = drivers.dateOfBirth;
+        this.nationality = drivers.nationality;
 
-        }
 
     }
 

@@ -12,8 +12,10 @@ public class PersistedDataSource implements DataSource {
     @Override
     public void saveDriverDetails(DriverDetails driverDetails) {
         ActiveAndroid.beginTransaction();
-        DriverModel driverModel = new DriverModel(driverDetails);
+        for (int i = 0 ;i<driverDetails.MRData.DriverTable.Drivers.size();i++){
+        DriverModel driverModel = new DriverModel(driverDetails.MRData.DriverTable.Drivers.get(i));
         driverModel.save();
+        }
         ActiveAndroid.setTransactionSuccessful();
         ActiveAndroid.endTransaction();
 
