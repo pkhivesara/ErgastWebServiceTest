@@ -36,6 +36,9 @@ public class DriverModel extends Model {
     @Column(name = "nationality")
     public String nationality;
 
+    public DriverModel(){
+        super();
+    }
     public DriverModel(DriverDetails driverDetails) {
         this.season = driverDetails.MRData.DriverTable.season;
 

@@ -8,5 +8,5 @@ import java.util.List;
 public interface DataSource {
     public void saveDriverDetails(DriverDetails driverDetails);
 
-    public List<DriverModel> getDriverDetails(String season);
+    public List<DriverModel> getDriverDetails();
 }

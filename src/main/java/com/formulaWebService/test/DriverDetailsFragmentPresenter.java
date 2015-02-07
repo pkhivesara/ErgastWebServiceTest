@@ -43,9 +43,9 @@ public class DriverDetailsFragmentPresenter {
     }
 
 
-    public void onEvent(String message) {
+    public void onEventMainThread(String message) {
         if (message.equals("data saved")) {
-            List<DriverModel> driverModel = dataSource.getDriverDetails("2013");
+            List<DriverModel> driverModel = dataSource.getDriverDetails();
                 helperInterface.test(driverModel);
             }
         }
