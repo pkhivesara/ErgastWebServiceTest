@@ -59,6 +59,12 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
         }
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName, lastName);
         listView.setAdapter(customBaseAdapter);
+        setUIElementsVisiblityAndClickListener();
+
+
+    }
+
+    private void setUIElementsVisiblityAndClickListener() {
         listView.setVisibility(View.VISIBLE);
         textView.setVisibility(View.GONE);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -74,8 +80,6 @@ public class DriverDetailsFragment extends Fragment implements FragmentsHelper.F
 
             }
         });
-
-
     }
 
     @Override

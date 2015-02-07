@@ -1,5 +1,6 @@
 package com.formulaWebService.test;
 
+import datasource.DataSource;
 import pojo.ApiResponse;
 import pojo.DriverDetails;
 import retrofit.Callback;
@@ -12,8 +13,9 @@ public class FragmentsHelper {
 
     FragmentHelperInterface helperInterface;
     ServiceHelper serviceHelper;
+    DataSource dataSource;
     public FragmentsHelper(FragmentHelperInterface helperInterface){
-        serviceHelper = new ServiceHelper();
+        serviceHelper = new ServiceHelper(dataSource);
         this.helperInterface = helperInterface;
     }
 
