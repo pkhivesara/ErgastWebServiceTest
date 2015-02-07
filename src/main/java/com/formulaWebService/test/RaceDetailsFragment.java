@@ -27,6 +27,12 @@ public class RaceDetailsFragment extends Fragment implements DriverDetailsFragme
     public void setTextForDriverDetails(DriverDetails driverDetails) {
 
     }
+
+    @Override
+    public void test(String name) {
+
+    }
+
     public void makeServiceCallForRace(String query) {
         fragmentsHelper.getRoundDetails(query);
     }

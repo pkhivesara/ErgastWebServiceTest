@@ -3,8 +3,10 @@ package datasource;
 
 import pojo.DriverDetails;
 
+import java.util.List;
+
 public interface DataSource {
     public void saveDriverDetails(DriverDetails driverDetails);
 
-    public DriverDetails getDriverDetails();
+    public List<DriverModel> getDriverDetails(String season);
 }
