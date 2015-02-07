@@ -2,13 +2,11 @@ package com.formulaWebService.test;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.*;
 import android.view.*;
 import android.widget.*;
-import android.widget.SearchView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
+import pojo.DriverDetails;
 
 public class RaceDetailsFragment extends Fragment implements FragmentsHelper.FragmentHelperInterface {
     FragmentsHelper fragmentsHelper;

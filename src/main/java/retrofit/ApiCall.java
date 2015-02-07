@@ -1,8 +1,8 @@
 package retrofit;
 
 
-import com.formulaWebService.test.ApiResponse;
-import com.formulaWebService.test.DriverDetails;
+import pojo.ApiResponse;
+import pojo.DriverDetails;
 import retrofit.http.GET;
 import retrofit.http.Path;
 import retrofit.http.Query;

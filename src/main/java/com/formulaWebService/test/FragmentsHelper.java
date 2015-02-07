@@ -1,7 +1,7 @@
 package com.formulaWebService.test;
 
-import android.support.v4.app.Fragment;
-import android.widget.Toast;
+import pojo.ApiResponse;
+import pojo.DriverDetails;
 import retrofit.Callback;
 import retrofit.RestClient;
 import retrofit.RetrofitError;
