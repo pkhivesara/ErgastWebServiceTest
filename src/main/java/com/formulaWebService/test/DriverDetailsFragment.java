@@ -62,25 +62,7 @@ public class DriverDetailsFragment extends Fragment implements DriverDetailsFrag
     }
 
     @Override
-    public void setTextForDriverDetails(DriverDetails driverDetails) {
-//
-//
-//        for (int i = 0; i < driverDetails.MRData.DriverTable.Drivers.size(); i++) {
-//            tempFirstNameText = driverDetails.MRData.DriverTable.Drivers.get(i).givenName;
-//            tempLastNameText = driverDetails.MRData.DriverTable.Drivers.get(i).familyName;
-//            firstName.add(tempFirstNameText);
-//            lastName.add(tempLastNameText);
-//
-//        }
-//        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName, lastName);
-//        listView.setAdapter(customBaseAdapter);
-//        setUIElementsVisibilityAndClickListener();
-//
-
-    }
-
-    @Override
-    public void test(List<DriverModel> driverModels){
+    public void setTextForDriverDetails(List<DriverModel> driverModels) {
         for (int i = 0; i < driverModels.size(); i++) {
             tempFirstNameText = driverModels.get(i).givenName;
             tempLastNameText = driverModels.get(i).familyName;
@@ -90,7 +72,10 @@ public class DriverDetailsFragment extends Fragment implements DriverDetailsFrag
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(firstName, lastName);
         listView.setAdapter(customBaseAdapter);
         setUIElementsVisibilityAndClickListener();
+
     }
+
+
 
     private void setUIElementsVisibilityAndClickListener() {
         listView.setVisibility(View.VISIBLE);

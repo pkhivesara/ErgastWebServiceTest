@@ -46,15 +46,14 @@ public class DriverDetailsFragmentPresenter {
     public void onEventMainThread(String message) {
         if (message.equals("data saved")) {
             List<DriverModel> driverModel = dataSource.getDriverDetails();
-                helperInterface.test(driverModel);
+                helperInterface.setTextForDriverDetails(driverModel);
             }
         }
 
 
     public interface FragmentHelperInterface {
-        public void setTextForDriverDetails(DriverDetails driverDetails);
+        public void setTextForDriverDetails(List<DriverModel> driverModels);
 
-        public void test(List<DriverModel> driverModels);
         public void setTextForRaceDetails(String date, String venue);
     }
 }
