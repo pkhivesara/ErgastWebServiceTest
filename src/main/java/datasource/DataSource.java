@@ -9,4 +9,6 @@ public interface DataSource {
     public void saveDriverDetails(DriverDetails driverDetails);
 
     public List<DriverModel> getDriverDetails();
+
+    public DriverModel getDriverDetail(String id);
 }

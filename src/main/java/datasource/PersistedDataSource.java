@@ -25,4 +25,9 @@ public class PersistedDataSource implements DataSource {
     public List<DriverModel> getDriverDetails() {
         return new Select().from(DriverModel.class).execute();
     }
+
+    @Override
+    public DriverModel getDriverDetail(String id) {
+        return new Select().from(DriverModel.class).where("id = ?", id).executeSingle();
+    }
 }
