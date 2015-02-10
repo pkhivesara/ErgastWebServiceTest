@@ -12,8 +12,7 @@ import presenter.RaceDetailsFragmentPresenter;
 
 import java.util.List;
 
-public class RaceDetailsFragment extends Fragment implements DriverDetailsFragmentPresenter.FragmentHelperInterface, RaceDetailsFragmentPresenter.RaceDetailsFragmentPresenterInterface {
-    DriverDetailsFragmentPresenter fragmentsHelper;
+public class RaceDetailsFragment extends Fragment implements RaceDetailsFragmentPresenter.RaceDetailsFragmentPresenterInterface {
     RaceDetailsFragmentPresenter raceDetailFragmentPresenter;
 
     @InjectView(R.id.textViewResponse)
@@ -22,27 +21,17 @@ public class RaceDetailsFragment extends Fragment implements DriverDetailsFragme
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_race_details, container, false);
-        fragmentsHelper = new DriverDetailsFragmentPresenter(this);
         raceDetailFragmentPresenter= new RaceDetailsFragmentPresenter(this);
         ButterKnife.inject(this, view);
         return view;
 
     }
 
-    @Override
-    public void setTextForDriverDetails(List<DriverModel> driverModels) {
-
-    }
-
-
     public void makeServiceCallForRace(String query) {
-        fragmentsHelper.getRoundDetails(query);
+        raceDetailFragmentPresenter.getRoundDetails(query);
     }
 
-    @Override
-    public void setTextForRaceDetails(String date, String venue) {
-        textViewResponse.setText(date + venue);
-    }
+
 }
 
 

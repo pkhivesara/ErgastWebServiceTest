@@ -18,6 +18,11 @@ public class RaceDetailsFragmentPresenter {
         this.raceDetailsFragmentPresenterInterface = raceDetailsFragmentPresenterInterface;
     }
 
+    public void getRoundDetails(String input) {
+        serviceHelper.getRoundDetails(input);
+    }
+
+
     public interface RaceDetailsFragmentPresenterInterface {
 
     }

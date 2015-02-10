@@ -94,11 +94,6 @@ public class DriverDetailsFragment extends Fragment implements DriverDetailsFrag
         });
     }
 
-    @Override
-    public void setTextForRaceDetails(String date, String venue) {
-
-    }
-
     private class CustomBaseAdapter extends BaseAdapter {
         List<String> firstName;
         List<String> lastName;

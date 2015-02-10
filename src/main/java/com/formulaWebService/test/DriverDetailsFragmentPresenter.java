@@ -33,10 +33,6 @@ public class DriverDetailsFragmentPresenter {
         EventBus.getDefault().unregister(this);
     }
 
-    public void getRoundDetails(String input) {
-        serviceHelper.getRoundDetails(input);
-    }
-
     public void getDriverDetails(String input) {
         serviceHelper.getDriverDetails(input);
 
@@ -53,7 +49,5 @@ public class DriverDetailsFragmentPresenter {
 
     public interface FragmentHelperInterface {
         public void setTextForDriverDetails(List<DriverModel> driverModels);
-
-        public void setTextForRaceDetails(String date, String venue);
     }
 }
