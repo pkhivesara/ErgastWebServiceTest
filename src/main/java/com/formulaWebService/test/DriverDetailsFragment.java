@@ -12,8 +12,7 @@ import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import datasource.DriverModel;
-import de.greenrobot.event.EventBus;
-import pojo.DriverDetails;
+import presenter.DriverDetailsFragmentPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

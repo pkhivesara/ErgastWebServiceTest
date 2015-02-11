@@ -2,6 +2,7 @@ package datasource;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Select;
+import pojo.ApiResponse;
 import pojo.DriverDetails;
 
 import java.util.List;
@@ -29,5 +30,10 @@ public class PersistedDataSource implements DataSource {
     @Override
     public DriverModel getDriverDetail(String id) {
         return new Select().from(DriverModel.class).where("id = ?", id).executeSingle();
+    }
+
+    @Override
+    public void saveRaceDetails(ApiResponse apiResponse) {
+
     }
 }

@@ -26,8 +26,7 @@ public class ServiceHelper {
             @Override
             public void success(ApiResponse apiResponse, Response response) {
 
-                String date = apiResponse.MRData.RaceTable.Races.get(0).date;
-                String venue = apiResponse.MRData.RaceTable.Races.get(0).raceName;
+                dataSource.saveRaceDetails(apiResponse);
 //                helperInterface.setTextForRaceDetails(date,venue); throw bus message here
             }
 
