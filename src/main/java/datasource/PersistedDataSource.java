@@ -13,9 +13,9 @@ public class PersistedDataSource implements DataSource {
     @Override
     public void saveDriverDetails(DriverDetails driverDetails) {
         ActiveAndroid.beginTransaction();
-        for (int i = 0 ;i<driverDetails.MRData.DriverTable.Drivers.size();i++){
-        DriverModel driverModel = new DriverModel(driverDetails.MRData.DriverTable.Drivers.get(i));
-        driverModel.save();
+        for (int i = 0; i < driverDetails.MRData.DriverTable.Drivers.size(); i++) {
+            DriverModel driverModel = new DriverModel(driverDetails.MRData.DriverTable.Drivers.get(i));
+            driverModel.save();
         }
         ActiveAndroid.setTransactionSuccessful();
         ActiveAndroid.endTransaction();
@@ -34,6 +34,12 @@ public class PersistedDataSource implements DataSource {
 
     @Override
     public void saveRaceDetails(ApiResponse apiResponse) {
-
+        ActiveAndroid.beginTransaction();
+        for (int i = 0; i < apiResponse.MRData.RaceTable.Races.size(); i++) {
+            RaceDetailModel raceDetailModel = new RaceDetailModel(apiResponse.MRData.RaceTable.Races.get(i));
+            raceDetailModel.save();
+        }
+        ActiveAndroid.setTransactionSuccessful();
+        ActiveAndroid.endTransaction();
     }
 }
