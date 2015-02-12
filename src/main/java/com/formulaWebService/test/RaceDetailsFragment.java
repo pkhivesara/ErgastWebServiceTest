@@ -7,6 +7,7 @@ import android.widget.*;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import datasource.DriverModel;
+import datasource.RaceDetailModel;
 import pojo.DriverDetails;
 import presenter.RaceDetailsFragmentPresenter;
 
@@ -32,6 +33,10 @@ public class RaceDetailsFragment extends Fragment implements RaceDetailsFragment
     }
 
 
+    @Override
+    public void setTextForRaceDetails(RaceDetailModel raceDetailModel) {
+        textViewResponse.setText(raceDetailModel.circuitName);
+    }
 }
 
 

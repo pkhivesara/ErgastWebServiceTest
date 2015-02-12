@@ -25,9 +25,8 @@ public class ServiceHelper {
 
             @Override
             public void success(ApiResponse apiResponse, Response response) {
-
                 dataSource.saveRaceDetails(apiResponse);
-//                helperInterface.setTextForRaceDetails(date,venue); throw bus message here
+                EventBus.getDefault().post("race data saved");
             }
 
 
@@ -46,7 +45,7 @@ public class ServiceHelper {
             @Override
             public void success(DriverDetails driverDetails, Response response) {
                 dataSource.saveDriverDetails(driverDetails);
-                EventBus.getDefault().post("data saved");
+                EventBus.getDefault().post("driver data saved");
             }
 
             @Override

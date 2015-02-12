@@ -41,7 +41,7 @@ public class DriverDetailsFragmentPresenter {
 
 
     public void onEventMainThread(String message) {
-        if (message.equals("data saved")) {
+        if (message.equals("driver data saved")) {
             List<DriverModel> driverModel = dataSource.getDriverDetails();
                 helperInterface.setTextForDriverDetails(driverModel);
             }
