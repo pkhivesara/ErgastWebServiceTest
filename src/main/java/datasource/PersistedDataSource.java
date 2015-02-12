@@ -4,6 +4,7 @@ import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Select;
 import pojo.ApiResponse;
 import pojo.DriverDetails;
+import pojo.RaceTable;
 
 import java.util.List;
 
@@ -41,5 +42,10 @@ public class PersistedDataSource implements DataSource {
         }
         ActiveAndroid.setTransactionSuccessful();
         ActiveAndroid.endTransaction();
+    }
+
+    @Override
+    public RaceDetailModel getRaceDetails(String roundNumber) {
+        return new Select().from(RaceDetailModel.class).where("round = ?", roundNumber).executeSingle();
     }
 }

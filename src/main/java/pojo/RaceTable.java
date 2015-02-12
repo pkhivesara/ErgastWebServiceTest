@@ -18,15 +18,15 @@ public class RaceTable {
         public String time;
 
         public class Circuit {
-            String circuitId;
-            String url;
-            String circuitName;
-            Location Location;
+            public String circuitId;
+            public String url;
+            public String circuitName;
+            public Location Location;
 
             public class Location {
-                String lat;
-                String locality;
-                String country;
+                public String lat;
+                public String locality;
+                public String country;
             }
         }
     }

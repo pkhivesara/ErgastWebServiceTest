@@ -6,6 +6,7 @@ import com.activeandroid.annotation.Table;
 import pojo.RaceTable;
 
 import java.util.List;
+
 @Table(name = "races")
 public class RaceDetailModel extends Model {
 
@@ -49,11 +50,22 @@ public class RaceDetailModel extends Model {
     public String country;
 
 
-    public RaceDetailModel(){
+    public RaceDetailModel() {
         super();
     }
 
-    public RaceDetailModel(RaceTable.Races racesList){
-
+    public RaceDetailModel(RaceTable.Races racesList) {
+        this.season = racesList.season;
+        this.round = racesList.round;
+        this.url = racesList.url;
+        this.raceName = racesList.raceName;
+        this.date = racesList.date;
+        this.time = racesList.time;
+        this.circuitId = racesList.Circuit.circuitId;
+        this.circuitName = racesList.Circuit.circuitName;
+        this.circuitUrl = racesList.Circuit.url;
+        this.lat = racesList.Circuit.Location.lat;
+        this.locality = racesList.Circuit.Location.country;
+        this.country = racesList.Circuit.Location.country;
     }
 }
