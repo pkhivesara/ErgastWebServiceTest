@@ -86,6 +86,7 @@ public class DriverDetailsFragment extends Fragment implements DriverDetailsFrag
                 Intent startDetailActivity = new Intent(getActivity(),DetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("DRIVER_DETAILS",driverDetails);
+                bundle.putInt("DRIVER_ID",i);
                 startDetailActivity.putExtras(bundle);
                 startActivity(startDetailActivity);
 
