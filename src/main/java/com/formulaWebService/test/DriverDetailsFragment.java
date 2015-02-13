@@ -82,10 +82,8 @@ public class DriverDetailsFragment extends Fragment implements DriverDetailsFrag
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String driverDetails = ((TextView)view.findViewById(android.R.id.text1)).getText().toString();
                 Intent startDetailActivity = new Intent(getActivity(),DetailsActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("DRIVER_DETAILS",driverDetails);
                 bundle.putInt("DRIVER_ID",i);
                 startDetailActivity.putExtras(bundle);
                 startActivity(startDetailActivity);
