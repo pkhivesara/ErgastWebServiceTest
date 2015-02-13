@@ -28,6 +28,18 @@ public class RaceDetailsFragment extends Fragment implements RaceDetailsFragment
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        raceDetailFragmentPresenter.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        raceDetailFragmentPresenter.onPause();
+    }
+
     public void makeServiceCallForRace(String query) {
         raceDetailFragmentPresenter.getRoundDetails(query);
     }

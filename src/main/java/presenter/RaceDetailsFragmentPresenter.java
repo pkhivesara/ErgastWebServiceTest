@@ -7,6 +7,7 @@ import datasource.DataSource;
 import datasource.DriverModel;
 import datasource.PersistedDataSource;
 import datasource.RaceDetailModel;
+import de.greenrobot.event.EventBus;
 
 import java.util.List;
 
@@ -26,6 +27,13 @@ public class RaceDetailsFragmentPresenter {
         this.input = input;
     }
 
+    public void onResume() {
+        EventBus.getDefault().register(this);
+    }
+
+    public void onPause() {
+        EventBus.getDefault().unregister(this);
+    }
 
     public void onEventMainThread(String message) {
         if (message.equals("race data saved")) {
