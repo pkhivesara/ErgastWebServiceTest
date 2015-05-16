@@ -1,5 +1,5 @@
 # ErgastWebServiceTest
-Test repository for the ergast webservice site
+Test repo for the ergast webservice site
 
 #License
 ```
